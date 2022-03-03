@@ -95,10 +95,16 @@ legend {
 
 
 /* CSS for results.html page */
+#bg-color1 {
+  background-color: #a2e2f2;
+}
 .legend-2 {
   color: black;
 }
 
+#bg-color2 {
+  background-color: #021896;
+}
 h2 {
   color: black;
 }
