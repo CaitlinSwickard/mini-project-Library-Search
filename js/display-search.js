@@ -21,8 +21,20 @@ function handleSearchFormSubmit(event) {
   // calling the API and giving it the search values from the form
   searchApi(searchInputVal, formatInputVal)
 }
-
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+
+
+
+function getParams() {
+  // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
+  var searchParamsArr = document.location.search.split('&');
+
+  // Get the query and format values
+  var query = searchParamsArr[0].split('=').pop();
+  var format = searchParamsArr[1].split('=').pop();
+
+  searchApi(query, format);
+}
 
 
 
@@ -57,7 +69,7 @@ function searchApi(query, format) {
       } else {
         resultContentEl.textContent = '';
         for (let i = 0; i < res.results.length; i++) {
-          // return (res.results[i])
+          printResults(res.results[i])
         }
       }
     })
@@ -65,6 +77,55 @@ function searchApi(query, format) {
     .catch(function (err) {
       console.log(err);
     });
+}
+
+
+
+// function to post results to page, creating html elements for results 
+function printResults(resultObj) {
+  console.log(resultObj);
+
+  // set up `<div>` to hold result content
+  var resultCard = document.createElement('div');
+  resultCard.classList.add('card', 'bg-light', 'text-dark', 'mb-3', 'p-3');
+
+  var resultBody = document.createElement('div');
+  resultBody.classList.add('card-body');
+  resultCard.append(resultBody);
+
+  var titleEl = document.createElement('h3');
+  titleEl.textContent = resultObj.title;
+
+  // highlighting specific content from the api request
+  var bodyContentEl = document.createElement('p');
+  bodyContentEl.innerHTML =
+    '<strong>Date:</strong> ' + resultObj.date + '<br/>';
+
+  if (resultObj.subject) {
+    bodyContentEl.innerHTML +=
+      '<strong>Subjects:</strong> ' + resultObj.subject.join(', ') + '<br/>';
+  } else {
+    bodyContentEl.innerHTML +=
+      '<strong>Subjects:</strong> No subject for this entry.';
+  }
+
+  if (resultObj.description) {
+    bodyContentEl.innerHTML +=
+      '<strong>Description:</strong> ' + resultObj.description[0];
+  } else {
+    bodyContentEl.innerHTML +=
+      '<strong>Description:</strong>  No description for this entry.';
+  }
+
+// adding button to link to search results to view entire article
+  var linkButtonEl = document.createElement('a');
+  linkButtonEl.textContent = 'Read More';
+  linkButtonEl.setAttribute('href', resultObj.url);
+  linkButtonEl.classList.add('btn', 'btn-dark');
+
+  resultBody.append(titleEl, bodyContentEl, linkButtonEl);
+
+  resultContentEl.append(resultCard);
 }
 
 
