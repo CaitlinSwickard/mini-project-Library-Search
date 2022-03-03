@@ -95,6 +95,10 @@ legend {
 
 
 /* CSS for results.html page */
+.outer-div {
+  position: absolute;
+
+}
 #bg-color1 {
   background-color: #a2e2f2;
 }

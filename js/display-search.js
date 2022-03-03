@@ -26,10 +26,10 @@ searchFormEl.addEventListener('submit', handleSearchFormSubmit);
 
 
 function getParams() {
-  // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
+  // get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
   var searchParamsArr = document.location.search.split('&');
 
-  // Get the query and format values
+  // get the query and format values
   var query = searchParamsArr[0].split('=').pop();
   var format = searchParamsArr[1].split('=').pop();
 
@@ -86,18 +86,18 @@ function printResults(resultObj) {
   console.log(resultObj);
 
   // set up `<div>` to hold result content
-  var resultCard = document.createElement('div');
+  const resultCard = document.createElement('div');
   resultCard.classList.add('card', 'bg-light', 'text-dark', 'mb-3', 'p-3');
 
-  var resultBody = document.createElement('div');
+  const resultBody = document.createElement('div');
   resultBody.classList.add('card-body');
   resultCard.append(resultBody);
 
-  var titleEl = document.createElement('h3');
+  const titleEl = document.createElement('h3');
   titleEl.textContent = resultObj.title;
 
   // highlighting specific content from the api request
-  var bodyContentEl = document.createElement('p');
+  const bodyContentEl = document.createElement('p');
   bodyContentEl.innerHTML =
     '<strong>Date:</strong> ' + resultObj.date + '<br/>';
 
@@ -117,8 +117,8 @@ function printResults(resultObj) {
       '<strong>Description:</strong>  No description for this entry.';
   }
 
-// adding button to link to search results to view entire article
-  var linkButtonEl = document.createElement('a');
+// adding button to link to search results to view entire article, takes user to acutal search results page
+  const linkButtonEl = document.createElement('a');
   linkButtonEl.textContent = 'Read More';
   linkButtonEl.setAttribute('href', resultObj.url);
   linkButtonEl.classList.add('btn', 'btn-dark');
