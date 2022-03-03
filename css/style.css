@@ -69,8 +69,8 @@ h6 {
   isolation: isolate;
 }
 
-/* MAIN CSS */
-body {
+/* MAIN CSS  on index.html page*/
+.body-index {
   background-image: linear-gradient(
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
@@ -91,4 +91,14 @@ legend {
 
 .btn {
   margin-top: 12px;
+}
+
+
+/* CSS for results.html page */
+.legend-2 {
+  color: black;
+}
+
+h2 {
+  color: black;
 }

@@ -12,8 +12,9 @@ function handleSearchFormSubmit(event) {
     return;
   }
 // creating query string for search results ot load on next page
-  var queryString = './search-results.html?q=' + searchInputVal + '&format=' + formatInputVal;
+  var queryString = './results.html?q=' + searchInputVal + '&format=' + formatInputVal;
   location.assign(queryString);
+  
 }
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
