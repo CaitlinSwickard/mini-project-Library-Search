@@ -1,4 +1,4 @@
-/* CSS RESETS */
+CSS RESETS
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -95,13 +95,12 @@ legend {
 
 
 /* CSS for results.html page */
-.outer-div {
-  position: absolute;
 
-}
+
 #bg-color1 {
   background-color: #a2e2f2;
 }
+
 .legend-2 {
   color: black;
 }
@@ -109,6 +108,12 @@ legend {
 #bg-color2 {
   background-color: #021896;
 }
+
 h2 {
   color: black;
+}
+#results-div {
+  padding-right: 50px;
+
+
 }

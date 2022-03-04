@@ -57,19 +57,19 @@ function searchApi(query, format) {
       }
       return response.json();
     })
-    .then(function (res) {
+    .then(function (locRes) {
       // write query to page so user knows what they are viewing
-      resultTextEl.textContent = res.search.query;
-      console.log(res);
+      resultTextEl.textContent = locRes.search.query;
+      console.log(locRes);
 
       // if no results found on search change html to the h3
-      if (!res.results.length) {
+      if (!locRes.results.length) {
         console.log('No results found');
         resultContentEl.innerHTML = '<h3>No results found, search again!</h3>'
       } else {
         resultContentEl.textContent = '';
-        for (let i = 0; i < res.results.length; i++) {
-          printResults(res.results[i])
+        for (let i = 0; i < locRes.results.length; i++) {
+          printResults(locRes.results[i])
         }
       }
     })

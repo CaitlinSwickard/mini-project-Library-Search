@@ -12,7 +12,8 @@ function handleSearchFormSubmit(event) {
     return;
   }
   // creating query string for search results ot load on next page
-  let queryString = './results.html?q=' + searchInputVal + '&format=' + formatInputVal;
+  let queryString = 'results.html?q=' + searchInputVal + '&format=' + formatInputVal;
+ 
   location.assign(queryString);
 
 }
