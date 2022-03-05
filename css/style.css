@@ -69,6 +69,7 @@ h6 {
   isolation: isolate;
 }
 
+
 /* MAIN CSS  on index.html page*/
 body {
   background-image: linear-gradient(
@@ -92,18 +93,6 @@ legend {
   margin-top: 12px;
 }
 
-/* CSS for results.html page */
-/* #top-div {
-  background-image: linear-gradient(
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)
-  ),
-  url(/images/library.jpeg);
-background-color: #cccccc;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-} */
 
 .legend-2 {
   color: #fdfdff;
